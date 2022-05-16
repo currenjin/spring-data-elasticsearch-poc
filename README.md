@@ -6,7 +6,7 @@
 `$ https://github.com/currenjin/elasticsearch-poc`
 
 ### Run container
-$ docker-compose up
+`$ docker-compose up`
 
 ### Invoke api
 #### In(Index)
