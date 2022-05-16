@@ -14,17 +14,28 @@ public class UserGetController {
     private final UserFinder userFinder;
 
     @GetMapping(value = "/{userId}")
-    public User getUserById(@PathVariable String userId) {
-        return userFinder.findById(userId);
+    public UserResponse getUserById(@PathVariable String userId) {
+        User user = userFinder.findById(userId);
+        return convertToUserResponseBy(user);
     }
 
     @GetMapping(params = "name")
-    public User getUserByName(@RequestParam(value = "name") String name) {
-        return userFinder.findByName(name);
+    public UserResponse getUserByName(@RequestParam(value = "name") String name) {
+        User user = userFinder.findByName(name);
+        return convertToUserResponseBy(user);
     }
 
     @GetMapping(params = "phoneNumber")
-    public User getUserByPhoneNumber(@RequestParam(value = "phoneNumber") String phoneNumber) {
-        return userFinder.findByPhoneNumber(phoneNumber);
+    public UserResponse getUserByPhoneNumber(@RequestParam(value = "phoneNumber") String phoneNumber) {
+        User user = userFinder.findByPhoneNumber(phoneNumber);
+        return convertToUserResponseBy(user);
+    }
+
+    private UserResponse convertToUserResponseBy(User user) {
+        return UserResponse.builder()
+                .id(user.getId())
+                .name(user.getName())
+                .phoneNumber(user.getPhoneNumber())
+                .build();
     }
 }
