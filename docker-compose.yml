@@ -2,16 +2,6 @@
 
 version: "3"
 services:
-  user:
-    container_name: user
-    restart: always
-    ports:
-      - "8080:8080"
-    environment:
-      - ELASTICSEARCH_ENDPOINT=http://host.docker.internal:9200
-    build:
-      context: ./
-
   elasticsearch-server:
     container_name: elasticsearch-server
     image: elasticsearch:7.6.2
@@ -20,3 +10,15 @@ services:
       - "9200:9200"
     environment:
       - discovery.type=single-node
+
+  user:
+    container_name: user
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - ELASTICSEARCH_URL=host.docker.internal:9200
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+
