@@ -2,11 +2,9 @@ package com.poc.elasticsearch.application;
 
 import com.poc.elasticsearch.domain.User;
 import com.poc.elasticsearch.domain.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class UserCreator {
 
     private final UserRepository userRepository;
@@ -14,6 +12,10 @@ public class UserCreator {
     public void create(User user) {
         validateUser(user);
         userRepository.save(user);
+    }
+
+    public UserCreator(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     private void validateUser(User user) {

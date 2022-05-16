@@ -2,14 +2,16 @@ package com.poc.elasticsearch.application;
 
 import com.poc.elasticsearch.domain.User;
 import com.poc.elasticsearch.domain.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class UserFinder {
 
     private final UserRepository userRepository;
+
+    public UserFinder(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public User findById(String id) {
         return userRepository.findById(id)
