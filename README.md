@@ -6,7 +6,7 @@
 `$ https://github.com/currenjin/elasticsearch-poc`
 
 ### Run container
-`$ docker-compose up`
+`$ make start-app` * jar is required.
 
 ### Invoke api
 #### In(Index)
