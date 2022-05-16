@@ -13,6 +13,7 @@ import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class UserCreatorTest {
+    User user = new User("S", "S", "S");
 
     @Mock
     UserRepository repository;
@@ -26,8 +27,6 @@ class UserCreatorTest {
 
     @Test
     void 유저를_생성합니다() {
-        User user = new User();
-
         sut.create(user);
 
         verify(repository).save(user);

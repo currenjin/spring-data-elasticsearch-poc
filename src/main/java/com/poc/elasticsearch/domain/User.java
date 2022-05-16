@@ -16,4 +16,10 @@ public class User {
 
     @Field(type = FieldType.Text, name = "phoneNumber")
     private String phoneNumber;
+
+    public User(String id, String name, String phoneNumber) {
+        this.id = id;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
 }
