@@ -7,10 +7,16 @@
 
 ## Run
 ### Clone project
-`$ https://github.com/currenjin/elasticsearch-poc`
+```shell
+$ https://github.com/currenjin/elasticsearch-poc
+```
 
 ### Run container
-`$ make start-app` * jar is required.
+```shell
+$ make start-app
+```
+
+*jar is required.
 
 ### Invoke api
 #### In(Index)
