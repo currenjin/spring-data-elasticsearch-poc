@@ -1,5 +1,5 @@
-# elasticsearch-poc
-해당 프로젝트는 Elasticsearch 에 대한 Index/Query POC(Proof of concept) 입니다.
+# Spring-Data-Elasticsearch-POC
+해당 프로젝트는 Spring Data Elasticsearch 에 대한 Index/Query POC(Proof of concept) 입니다.
 
 ## Run
 ### Clone project
