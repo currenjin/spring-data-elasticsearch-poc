@@ -1,13 +1,13 @@
 ## COMMANDS
 
-start-app:
-	docker-compose up
-
-stop-app:
-	docker-compose down
-
 start-elasticsearch:
-	docker-compose up -d elasticsearch-server
+	docker-compose up elasticsearch-server user-for-elasticsearch
 
 stop-elasticsearch:
+	docker-compose down
+
+start-opensearch:
+	docker-compose up user-for-opensearch
+
+stop-opensearch:
 	docker-compose down
