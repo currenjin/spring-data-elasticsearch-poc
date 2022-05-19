@@ -11,7 +11,9 @@
 
 ## Run
 ### Clone project
-`$ https://github.com/currenjin/elasticsearch-poc`
+```shell
+$ https://github.com/currenjin/elasticsearch-poc
+```
 
 ### Elasticsearch
 `$ make start-elasticsearch` * jar is required.
@@ -23,6 +25,7 @@
 > PORT Number
 > - Elasticsearch client : 8081
 > - Opensearch client : 8082
+
 #### In(Index)
 ```shell
 $ curl -d '{"id":"test","name":"currenjin","phoneNumber":"01012341234"}' \
