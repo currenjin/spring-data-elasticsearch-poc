@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 public class UserGetController {
 
@@ -23,18 +26,26 @@ public class UserGetController {
     }
 
     @GetMapping(params = "name")
-    public UserResponse getUserByName(@RequestParam(value = "name") String name) {
-        User user = userFinder.findByName(name);
-        return convertToUserResponseBy(user);
+    public List<UserResponse> getUserByName(@RequestParam(value = "name") String name) {
+        List<User> users = userFinder.findAllByName(name);
+        return convertToUserResponseBy(users);
     }
 
     @GetMapping(params = "phoneNumber")
-    public UserResponse getUserByPhoneNumber(@RequestParam(value = "phoneNumber") String phoneNumber) {
-        User user = userFinder.findByPhoneNumber(phoneNumber);
-        return convertToUserResponseBy(user);
+    public List<UserResponse> getUserByPhoneNumber(@RequestParam(value = "phoneNumber") String phoneNumber) {
+        List<User> users = userFinder.findAllByPhoneNumber(phoneNumber);
+        return convertToUserResponseBy(users);
     }
 
     private UserResponse convertToUserResponseBy(User user) {
         return new UserResponse(user.getId(), user.getName(), user.getPhoneNumber());
+    }
+
+    private List<UserResponse> convertToUserResponseBy(List<User> users) {
+        List<UserResponse> userResponseList = new ArrayList<>();
+
+        users.forEach(e -> userResponseList.add(new UserResponse(e.getId(), e.getName(), e.getPhoneNumber())));
+
+        return userResponseList;
     }
 }

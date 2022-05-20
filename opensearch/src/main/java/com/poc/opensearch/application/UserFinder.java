@@ -4,6 +4,8 @@ import com.poc.opensearch.domain.User;
 import com.poc.opensearch.domain.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserFinder {
 
@@ -18,13 +20,11 @@ public class UserFinder {
                 .orElseThrow(IllegalArgumentException::new);
     }
 
-    public User findByName(String name) {
-        return userRepository.findByNameContaining(name)
-                .orElseThrow(IllegalArgumentException::new);
+    public List<User> findAllByName(String name) {
+        return userRepository.findAllByNameContaining(name);
     }
 
-    public User findByPhoneNumber(String phoneNumber) {
-        return userRepository.findByPhoneNumberContaining(phoneNumber)
-                .orElseThrow(IllegalArgumentException::new);
+    public List<User> findAllByPhoneNumber(String phoneNumber) {
+        return userRepository.findAllByPhoneNumberContaining(phoneNumber);
     }
 }

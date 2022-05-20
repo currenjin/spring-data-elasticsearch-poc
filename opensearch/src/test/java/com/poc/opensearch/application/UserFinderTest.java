@@ -2,6 +2,7 @@ package com.poc.opensearch.application;
 
 import com.poc.opensearch.domain.User;
 import com.poc.opensearch.domain.UserRepository;
+import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,20 +41,6 @@ class UserFinderTest {
     }
 
     @Test
-    void NAME_으로_조회_시_유저가_없으면_예외가_발생한다() {
-        given(repository.findByNameContaining(ANY_STRING)).willReturn(Optional.empty());
-
-        assertThatThrownBy(() -> sut.findByName(ANY_STRING)).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void PHONE_NUMBER_로_조회_시_유저가_없으면_예외가_발생한다() {
-        given(repository.findByPhoneNumberContaining(ANY_STRING)).willReturn(Optional.empty());
-
-        assertThatThrownBy(() -> sut.findByPhoneNumber(ANY_STRING)).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
     void ID_로_조회한다() {
         given(repository.findById(ANY_STRING)).willReturn(Optional.of(user));
 
@@ -64,19 +51,19 @@ class UserFinderTest {
 
     @Test
     void NAME_으로_조회한다() {
-        given(repository.findByNameContaining(ANY_STRING)).willReturn(Optional.of(user));
+        given(repository.findAllByNameContaining(ANY_STRING)).willReturn(Lists.newArrayList(user));
 
-        sut.findByName(ANY_STRING);
+        sut.findAllByName(ANY_STRING);
 
-        verify(repository).findByNameContaining(ANY_STRING);
+        verify(repository).findAllByNameContaining(ANY_STRING);
     }
 
     @Test
     void PHONE_NUMBER_로_조회한다() {
-        given(repository.findByPhoneNumberContaining(ANY_STRING)).willReturn(Optional.of(user));
+        given(repository.findAllByPhoneNumberContaining(ANY_STRING)).willReturn(Lists.newArrayList(user));
 
-        sut.findByPhoneNumber(ANY_STRING);
+        sut.findAllByPhoneNumber(ANY_STRING);
 
-        verify(repository).findByPhoneNumberContaining(ANY_STRING);
+        verify(repository).findAllByPhoneNumberContaining(ANY_STRING);
     }
 }
