@@ -1,4 +1,4 @@
-package com.poc.elasticsearch.domain;
+package com.poc.opensearch.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;

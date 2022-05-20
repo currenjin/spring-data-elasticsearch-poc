@@ -1,7 +1,7 @@
-package com.poc.elasticsearch.application;
+package com.poc.opensearch.application;
 
-import com.poc.elasticsearch.domain.User;
-import com.poc.elasticsearch.domain.UserRepository;
+import com.poc.opensearch.domain.User;
+import com.poc.opensearch.domain.UserRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,12 +19,12 @@ public class UserFinder {
     }
 
     public User findByName(String name) {
-        return userRepository.findByName(name)
+        return userRepository.findByNameContaining(name)
                 .orElseThrow(IllegalArgumentException::new);
     }
 
     public User findByPhoneNumber(String phoneNumber) {
-        return userRepository.findByPhoneNumber(phoneNumber)
+        return userRepository.findByPhoneNumberContaining(phoneNumber)
                 .orElseThrow(IllegalArgumentException::new);
     }
 }

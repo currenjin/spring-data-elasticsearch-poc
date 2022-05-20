@@ -1,4 +1,4 @@
-package com.poc.elasticsearch.config;
+package com.poc.opensearch.config;
 
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
 @Configuration
-@EnableElasticsearchRepositories(basePackages = "com.poc.elasticsearch.domain")
-@ComponentScan(basePackages = "com.poc.elasticsearch.application")
+@EnableElasticsearchRepositories(basePackages = "com.poc.opensearch.domain")
+@ComponentScan(basePackages = "com.poc.opensearch.application")
 public class ElasticsearchConfig {
 
     @Value("${cloud.aws.opensearch.credentials.username}")

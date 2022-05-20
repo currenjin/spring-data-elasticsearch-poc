@@ -1,7 +1,7 @@
-package com.poc.elasticsearch.application;
+package com.poc.opensearch.application;
 
-import com.poc.elasticsearch.domain.User;
-import com.poc.elasticsearch.domain.UserRepository;
+import com.poc.opensearch.domain.User;
+import com.poc.opensearch.domain.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

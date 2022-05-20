@@ -1,10 +1,10 @@
-package com.poc.elasticsearch.domain;
+package com.poc.opensearch.domain;
 
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 import java.util.Optional;
 
 public interface UserRepository extends ElasticsearchRepository<User, String> {
-    Optional<User> findByName(String name);
-    Optional<User> findByPhoneNumber(String phoneNumber);
+    Optional<User> findByNameContaining(String name);
+    Optional<User> findByPhoneNumberContaining(String phoneNumber);
 }

@@ -1,4 +1,4 @@
-package com.poc.elasticsearch.presentation;
+package com.poc.opensearch.presentation;
 
 public class UserResponse {
     private final String id;

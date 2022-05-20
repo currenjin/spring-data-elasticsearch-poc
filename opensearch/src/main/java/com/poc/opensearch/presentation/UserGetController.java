@@ -1,7 +1,7 @@
-package com.poc.elasticsearch.presentation;
+package com.poc.opensearch.presentation;
 
-import com.poc.elasticsearch.application.UserFinder;
-import com.poc.elasticsearch.domain.User;
+import com.poc.opensearch.application.UserFinder;
+import com.poc.opensearch.domain.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
