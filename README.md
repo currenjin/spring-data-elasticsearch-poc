@@ -5,6 +5,14 @@
 - Elasticsearch
 - Opensearch
 
+<br>
+
+This project is an Index/Query POC (Proof of Concept) for Spring Data Elasticsearch.<br>
+
+We support POC for the following services:
+- Elasticsearch
+- Opensearch
+
 ## Diagram
 
 <img width="1065" alt="image" src="https://user-images.githubusercontent.com/60500649/169252567-06400514-c093-4ac3-87b9-5c52dcc5ad4d.png">
